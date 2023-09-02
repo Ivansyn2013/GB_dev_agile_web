@@ -5,6 +5,9 @@ import os
 from settings import *
 from map import *
 from player import *
+import asyncio
+import threading
+from websocket_server import run_game
 
 class Game:
     def __init__(self):
@@ -31,7 +34,7 @@ class Game:
 
     def check_events(self):
         for event in pg.event.get():
-            if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.type == pg.K_ESCAPE):
+            if event.type == pg.QUIT or event.type == pg.K_ESCAPE:
                 pg.quit()
                 sys.exit()
     def run(self):
@@ -44,4 +47,20 @@ class Game:
 
 if __name__ == '__main__':
     game = Game()
+
+    #
+    # loop = asyncio.get_event_loop()
+    # future = loop.create_future()
+    #
+    # thread = threading.Thread(target=run_game.start_server, args=(loop, future))
+    # thread.start()
+    # #
+
     game.run()
+
+    #
+    # print("Stoping event loop")
+    # run_game.stop_server(loop, future)
+    # print("Waiting for termination")
+    # thread.join()
+    # print("Shutdown pygame")
