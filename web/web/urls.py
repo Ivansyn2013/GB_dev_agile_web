@@ -17,11 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from authapp.views import home, RegisterUser, LoginUser, profile_user_view, top_players, logout_user, ProfileUpdateView
+from authapp.views import home, game, RegisterUser, LoginUser, profile_user_view, top_players, logout_user, ProfileUpdateView
+
+from django.conf import settings # new
+from django.conf.urls.static import static # new
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home,  name='home'),
+    path('', home, name='home'),
+
+    path('game/', game, name='game'), # new ksuchkov
+
     path('register/', RegisterUser.as_view(), name='register'),
     path('login/', LoginUser.as_view(), name='login'),
     path('profile/', profile_user_view, name='profile'),
@@ -29,3 +36,6 @@ urlpatterns = [
     path('logout/', logout_user,  name='logout'),
     path('edit_profile/', ProfileUpdateView.as_view(),  name='edit_profile'),
 ]
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

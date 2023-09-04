@@ -7,13 +7,27 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
+from django.http import HttpResponse
+from django.template import loader
+
 from authapp.forms import CustomUserCreationForm, CustomUserChangeForm
 from authapp.models import ProfileUser, CustomUser
 from authapp.utils import DataMixin
 
+from django.core.files import File
+
 
 def home(request):
     return render(request, 'index.html')
+
+def game(request): # new ksuchkov
+    print('hello game')
+    # t = loader.get_template("game.html")
+    # f = open("C:/Users/vanka/PycharmProjects/GB_dev_agile_web11/web/media/game/game.apk", "rb")
+    # game = File(f)
+    # content = {"game": game}
+    # return HttpResponse(t.render(content, request))
+    return render(request, 'game.html')
 
 
 class RegisterUser(DataMixin, CreateView):

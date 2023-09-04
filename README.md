@@ -30,6 +30,9 @@ Pet project
 ``` python3 manage.py migrate```
 4. Запускаем web\
 ```python3 manage.py runserver 0.0.0.0:8888```
+5. Запускаем сервер с игрой (из папки /game, где находится main.py.Также пакет pygbag должен быть установлен)
+```pygbag main.py```
+```теперь на странице /game должна работать игра```
 
 Остановить контейнеры\
 ```docker-compose down```
