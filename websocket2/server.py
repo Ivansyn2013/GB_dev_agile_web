@@ -43,11 +43,12 @@ async def start_server():
 
 
 class WebsocketServer:
-    def __init__(self, queue, host=HOST, port=PORT):
+    def __init__(self, queue, host=HOST, port=PORT, default_loop=True):
         self.host = host
         self.port = port
         self.monitor = None
         self.queue = queue
+        self.def_loop = default_loop
 
     async def loop(self, websocket, path):
         '''start screen share loop'''
@@ -64,14 +65,14 @@ class WebsocketServer:
         '''start game share loop'''
         while True:
             print('забота')
-            image = await self.queue.get()
+            image = self.queue.get()
             if not image:
                 print('нет изображения')
                 await websocket.send("нет изображения")
             await websocket.send(image)
 
-    async def start(self, loop=None):
-        async with websockets.serve(self.loop if loop is None else self.game_loop, self.host, self.port):
+    async def start(self):
+        async with websockets.serve(self.loop if self.def_loop else self.game_loop, self.host, self.port):
             await asyncio.Future()
 
 

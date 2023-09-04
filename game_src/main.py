@@ -1,3 +1,4 @@
+import queue
 import sys
 
 import pygame as pg
@@ -7,10 +8,8 @@ from map import *
 from player import *
 import asyncio
 import threading
-from websocket_server import run_game
 from threading import Thread
-from queue import Queue
-from multiprocessing import Process
+from multiprocessing import Process, Queue
 
 from websocket2.server import WebsocketServer
 
@@ -62,10 +61,10 @@ class Game:
             self.check_events()
             self.update()
             self.draw()
-        try:
-            self.queue.put(self.get_screen(), block=False)
-        except Exception as error:
-            print(error)
+            try:
+                self.queue.put(self.get_screen(), block=False)
+            except queue.Full as error:
+                print(error)
 
 
 
@@ -73,20 +72,14 @@ class Game:
 #должен быть стрим экрана
 if __name__ == '__main__':
     my_queue = Queue()
-    #game = Game(my_queue)
+    game = Game(my_queue)
 
-    #game.start()
+    #game.run()
+   # для запуска с сервером
     HOST = "localhost"
-
-    PORT = 8766
-
-    server = WebsocketServer(queue=my_queue, host=HOST, port=PORT)
-    ser = Process(target=(lambda: asyncio.run(server.start())))
-
-    #game = Process(target=(game.run))
-
-    #game.start()
+    PORT = 8768
+    server = WebsocketServer(queue=my_queue, host=HOST, port=PORT, default_loop=False)
+    ser = Process(target=(lambda: asyncio.run(server.start())), name='websocket_game_server')
     ser.start()
-
+    game.run()
     ser.join()
-    #game.join()
