@@ -77,7 +77,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'web.wsgi.application'
+#WSGI_APPLICATION = 'web.wsgi.application'
+ASGI_APPLICATION = 'web.asgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -151,4 +153,5 @@ CHANNEL_LAYERS = {
     },
 }
 
-ASGI_APPLICATION = "web.asgi.application"
+
+

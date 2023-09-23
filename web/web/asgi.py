@@ -13,7 +13,7 @@ from django.core.asgi import get_asgi_application
 from channels.auth import AuthMiddlewareStack
 from django.urls import re_path
 
-from authapp import consumers
+from web.authapp import consumers
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web.settings')
 
