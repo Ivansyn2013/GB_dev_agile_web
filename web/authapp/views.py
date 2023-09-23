@@ -87,6 +87,9 @@ def start_game(request):
 def game(request):
     return render(request, 'game.html')
 
+def doom_game_from_g(request):
+    return render(request, 'play_game_from_g.html')
+
 
 def home(request):
     # distinct=True - позволяет подсчитывать только уникальные элементы
@@ -181,7 +184,7 @@ def delete_post(request, post_id):
     try:
         post = PostUser.objects.get(id=post_id)
         post.delete()
-        return JsonResponse({'sucses': True})
+        return JsonResponse({'succses': True})
     except PostUser.DoesNotExist:
         return JsonResponse({'success': False, 'error': 'Post not found'}, status=404)
 

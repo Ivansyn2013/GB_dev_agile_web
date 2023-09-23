@@ -10,7 +10,7 @@ from object_handler import *
 from weapon import *
 from sound import *
 from pathfinding import *
-
+import asyncio
 
 
 class Game:
@@ -63,6 +63,10 @@ class Game:
             elif event.type == self.global_event:
                 self.global_trigger = True
             self.player.single_fire_event(event)
+
+    def send_screen(self):
+        screen = pg.Surface((640, 480))
+
 
     async def run(self):
         while True:
