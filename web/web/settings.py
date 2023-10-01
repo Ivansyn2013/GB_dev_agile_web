@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
 
     'django_extensions',
-    'corsheaders',
+    #'corsheaders',
     # созданные приложения
-    'daphne',
+
     'channels',
     'authapp',
     'bootstrap4',
@@ -51,16 +52,16 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware', #кросс запросы
-    'django.middleware.common.CommonMiddleware',
+
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+
+   # 'corsheaders.middleware.CorsMiddleware', #кросс запросы
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-
 
 
 ]
@@ -157,23 +158,19 @@ CHANNEL_LAYERS = {
     },
 }
 
-ASGI_APPLICATION = "web.asgi.application"
+ASGI_APPLICATION = 'web.asgi.application'
 
 #Кросс запросы
-if DEBUG:
-    CORS_ALLOW_ALL_ORIGINS = True
-else:
-    CORS_ALLOW_ALL_ORIGINS = False
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8888",
-
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8888"
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8888",
-]
+# CORS_ALLOW_CREDENTIALS = False
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8888",
+#     "http://127.0.0.1:8888",
+#
+# ]
+#
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://localhost:8888",
+#     "http://127.0.0.1:8888",
+#
+# ]

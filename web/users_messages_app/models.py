@@ -17,7 +17,7 @@ class Chat(models.Model):
     created_at = DateTimeField(default=timezone.now)
     slug = models.SlugField(max_length=255, unique=True, verbose_name='url')
 
-    users = ManyToManyField(CustomUser)
+    users = ManyToManyField(CustomUser, related_name='chats')
 
     def __str__(self):
         return str(self.users)
