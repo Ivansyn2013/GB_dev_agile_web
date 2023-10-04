@@ -2,12 +2,20 @@
 {% load static %}
 
 {% block content %}
+  {% if chats %}
     {% for chat in chats %}
         <div class="user_container">
+          <div>
             <span>{{ chat }}</span>
+          </div>
         </div>
 
     {% endfor %}
+  {% else %}
+    <div class="user_container">
+            <span>Чатов нет</span>
+        </div>
+  {% endif %}
 {% endblock %}
 
 {% block scripts %}

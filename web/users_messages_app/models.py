@@ -20,7 +20,7 @@ class Chat(models.Model):
     users = ManyToManyField(CustomUser, related_name='chats')
 
     def __str__(self):
-        return str(self.users)
+        return str(self.users.name)
 
 class ChatMessage(models.Model):
     '''

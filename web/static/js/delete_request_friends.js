@@ -5,7 +5,7 @@ $(document).ready(function() {
     $(document).on("click", ".request, .cancel", function() {
         var userId = $(this).data("user-id");
         var isRequest = $(this).hasClass("request"); // Проверяем класс кнопки
-        const URL_VAR = "http://localhost:8888/request_friends/"
+        const URL_VAR = "http://127.0.0.1:8888/request_friends/"
 
         // Отправляем Ajax-запрос на сервер
         $.ajax({
