@@ -2,7 +2,7 @@ import uuid
 
 from django.db import models
 from uuid import uuid4
-from django.db.models import (SlugField, CharField, TextField, DateTimeField, ForeignKey, ManyToManyField)
+from django.db.models import (SlugField, CharField, TextField, DateTimeField, ForeignKey, ManyToManyField, BooleanField)
 from django.utils import timezone
 from authapp.models import CustomUser
 
@@ -32,6 +32,7 @@ class ChatMessage(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     text = TextField()
     created_at = DateTimeField(default=timezone.now)
+    new = BooleanField(default=True)
 
     ##
     author = ForeignKey(CustomUser, on_delete=models.CASCADE, blank=False, null=False, related_name='message')

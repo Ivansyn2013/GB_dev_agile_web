@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-#путь к своему окружению писать здесь
+# путь к своему окружению писать здесь
 load_dotenv(dotenv_path='../.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_extensions',
-    #'corsheaders',
+    # 'corsheaders',
     # созданные приложения
 
     'authapp',
@@ -56,12 +56,11 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
 
-   # 'corsheaders.middleware.CorsMiddleware', #кросс запросы
+    # 'corsheaders.middleware.CorsMiddleware', #кросс запросы
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 
 ]
 
@@ -99,7 +98,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -133,7 +131,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'users_messages_app/templates/js'),
+)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -142,7 +143,6 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -150,7 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authapp.CustomUser'
 
-#Асинхронщина
+# Асинхронщина
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
@@ -167,7 +167,7 @@ CHANNEL_LAYERS = {
 
 ASGI_APPLICATION = 'web.asgi.application'
 
-#Кросс запросы
+# Кросс запросы
 
 # CORS_ALLOW_CREDENTIALS = False
 # CORS_ALLOWED_ORIGINS = [
