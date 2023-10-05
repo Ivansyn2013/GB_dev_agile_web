@@ -27,24 +27,28 @@ class MyChatsView(LoginRequiredMixin, ListView):
 
 
 class ChatView(LoginRequiredMixin, DetailView):
-    pass
+    model = Chat
+    template_name = 'chat_detail.html'
 
 
 
 class CreateChatView(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
-        print('пришло')
         data = request.POST
         try:
             initiator = request.user
             companion = CustomUser.objects.get(id=int(data.get('companion')))
 
+            if Chat.objects.get(users=(initiator.id, companion.id)):#проверка существования чата
+                raise ValueError
+
             chat_inst = Chat.objects.create()
             chat_inst.users.add(initiator, companion)
-            chat_inst.save()
-            operation_result = 'success'
-        except CustomUser.DoesNotExist as error:
+
+
+
+        except (CustomUser.DoesNotExist, ValueError) as error:
             print(f'CreateChatView error === {error}')
             operation_result = 'error'
 
