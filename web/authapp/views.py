@@ -62,6 +62,28 @@ def users_all_view(request):
 class BaseGameView(View):
     template_name = None  # Указать имя шаблона в подклассах
 
+    return render(request, 'game/pygbag.html', {'messages': messages, 'current_user': current_user, 'form': form})
+
+
+def kerby(request):
+    return render(request, 'game/kirby.html')
+
+class SuperMarioViews(View):
+    def get(self, request):
+        current_user = request.user
+        messages = MessagesModel.objects.all()
+        form = MessageForm()
+
+        if messages.count() > 20:
+            # Если количество записей больше 20, удаляем лишние записи
+            messages_to_delete = messages.order_by('created_at')[:messages.count() - 20]
+            for message in messages_to_delete:
+                message.delete()
+
+        return render(request, 'game/mario_js.html', {'messages': messages, 'current_user': current_user, 'form': form})
+
+
+class DuckHuntViews(View):
     def get(self, request):
         current_user = request.user
         messages = MessagesModel.objects.all()
@@ -122,6 +144,11 @@ def game(request):
 
 
 def home(request):
+    from django.middleware.csrf import get_token
+
+    csrf_token = get_token(request)
+    print(csrf_token)
+
     # distinct=True - позволяет подсчитывать только уникальные элементы
     post = PostUser.objects.annotate(comment_count=Count('comments')).annotate(
         like_count=Count('like', distinct=True)).annotate(

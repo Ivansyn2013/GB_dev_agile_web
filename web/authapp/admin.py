@@ -125,7 +125,6 @@ class SuperMarioAdmin(admin.ModelAdmin):
 
 admin.site.register(SuperMarioModel, SuperMarioAdmin)
 
-
 class KerbyAdmin(admin.ModelAdmin):
     list_display = ['id', 'profile_user', 'best_result', 'total_points', 'allies_saved', 'allies_lost']
     list_display_links = ['id']
