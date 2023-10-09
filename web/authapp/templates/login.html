@@ -14,10 +14,21 @@
     <form method="post" class="form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-dark" type="submit">Войти</button>
+        <div class="auth_button">
+            <button class="btn btn-dark" type="submit">Войти</button>
+            <a href="{% url 'login_github' %}" class="white">
+                <img src="/media/github-logo.png" style="width: 44px; height: 23px;">
+            </a>
+            <a href="{% url 'login_vk' %}" class="white">
+                <img src="/media/VK-1024x1024.png" style="width: 25px; height: 25px;">
+            </a>
+        </div>
     </form>
+            <p>Для входа необходимо выполнить подтверждение регистрации!<br>
+            Елси вы еще не подтверлили регистрацию,<br> письмо с подтверждением мы отправили вам на email.</p>
+
 
 </div>
 
  
-{% endblock %}
+{% endblock content %}

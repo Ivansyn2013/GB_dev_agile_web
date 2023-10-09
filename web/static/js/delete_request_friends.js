@@ -1,5 +1,6 @@
 $(document).ready(function() {
     var csrfToken = $('meta[name="csrf-token"]').attr('content');
+    var hostPort = $('meta[name="host-port"]').attr('content');
 
     // Обработчик для кнопки "Добавить в друзья" и "Отменить запрос"
     $(document).on("click", ".request, .cancel", function() {
@@ -7,14 +8,14 @@ $(document).ready(function() {
         var isRequest = $(this).hasClass("request"); // Проверяем класс кнопки
         const URL_VAR = "http://127.0.0.1:8888/request_friends/"
 
+        
         // Отправляем Ajax-запрос на сервер
         $.ajax({
-            url: isRequest ? URL_VAR + userId + "/" : URL_VAR + userId + "/",
+            url: isRequest ? hostPort + "request_friends/" + userId + "/" : hostPort + "delete_request_friends/" + userId + "/",
             type: "POST",
             data: {
                 csrfmiddlewaretoken: csrfToken,
             },
-
             success: function(data) {
                 if (data.result === 'Success') {
                     // Находим элемент кнопки с помощью data-user-id

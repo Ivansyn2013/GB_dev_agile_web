@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 # from django.utils.translation import ugettext_lazy as _
+from django.db.models.fields import related
+
 from .managers import CustomUserManager
 from django.utils import timezone
 from django.urls import reverse
@@ -18,6 +20,7 @@ class CustomUser(AbstractUser):
     instagram = models.CharField(max_length=100, blank=True, null=True)
     github = models.CharField(max_length=100, blank=True, null=True)
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d/', blank=True, verbose_name='avatar')
+    is_activated = models.BooleanField(default=True, db_index=True, verbose_name='Прошел активацтю')
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
@@ -28,7 +31,7 @@ class CustomUser(AbstractUser):
 
 # Модель профиля игрока, то есть можем вести некую статистику и выводить ее на условной таблице лидеров
 class ProfileUser(models.Model):
-    user_name = models.OneToOneField(CustomUser, on_delete=models.PROTECT, related_name='profile_user')
+    user_name = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='profile_user')
     top_result = models.IntegerField(default=0)
     count_game = models.IntegerField(default=0)
 
@@ -40,14 +43,10 @@ class ProfileUser(models.Model):
         verbose_name_plural = 'Профили'
 
 
-
 class DuckHuntModel(models.Model):
-    '''
-    Модель хранения данных игры
-    '''
     best_result = models.IntegerField(default=0)
     total_points = models.IntegerField(default=0)
-    profile_user = models.OneToOneField(ProfileUser, on_delete=models.PROTECT, related_name='duck_hunt')
+    profile_user = models.OneToOneField(ProfileUser, on_delete=models.CASCADE, related_name='duck_hunt')
 
     class Meta:
         verbose_name = 'Duck Hunt'
@@ -57,17 +56,36 @@ class DuckHuntModel(models.Model):
 class SuperMarioModel(models.Model):
     best_result = models.IntegerField(default=0)
     total_points = models.IntegerField(default=0)
-    profile_user = models.OneToOneField(ProfileUser, on_delete=models.PROTECT, related_name='super_mario')
+    profile_user = models.OneToOneField(ProfileUser, on_delete=models.CASCADE, related_name='super_mario')
 
     class Meta:
         verbose_name = 'Super Mario'
         verbose_name_plural = 'Super Mario'
 
+class KerbyModel(models.Model):
+    best_result = models.IntegerField(default=0)
+    total_points = models.IntegerField(default=0)
+    allies_saved = models.IntegerField(default=0)
+    allies_lost = models.IntegerField(default=0)
+    profile_user = models.OneToOneField(ProfileUser, on_delete=models.CASCADE, related_name='kerby')
+
+    class Meta:
+        verbose_name = 'Kerby'
+        verbose_name_plural = 'Kerby'
+
+
+class BombermanModel(models.Model):
+    count_win = models.IntegerField(default=0)
+    total_kills = models.IntegerField(default=0)
+    kill_npc_best = models.IntegerField(default=0)
+    profile_user = models.OneToOneField(ProfileUser, on_delete=models.CASCADE, related_name='bomberman')
+
+    class Meta:
+        verbose_name = 'Bomberman'
+        verbose_name_plural = 'Bomberman'
+
 
 class MessagesModel(models.Model):
-    '''
-        Модель хранения данных игры
-    '''
     sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='sent_messages')
     message = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)

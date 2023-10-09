@@ -20,8 +20,15 @@
       <p><label class="form-check" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
       <div class="form-error">{{ f.errors }}</div>
     {% endfor %}
-
-    <button class="btn btn-dark" type="submit">Регистрация</button>
+      <div class="auth_button">
+          <button class="btn btn-dark" type="submit">Регистрация</button><br>
+            <a href="{% url 'login_github' %}" class="white">
+                <img src="/media/github-logo.png" style="width: 44px; height: 23px;">
+            </a>
+            <a href="{% url 'login_vk' %}" class="white">
+                <img src="/media/VK-1024x1024.png" style="width: 25px; height: 25px;">
+            </a>
+      </div>
   </form>
 </div>
 
