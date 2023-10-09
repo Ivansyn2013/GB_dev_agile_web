@@ -158,6 +158,10 @@ EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = 465 # 2525
 EMAIL_HOST_USER = os.getenv("EMAIL")
 EMAIL_HOST_PASSWORD = os.getenv("PASSWORD")
+
+# EMAIL_HOST_USER = 'dima_protasevich92@mail.ru'
+# EMAIL_HOST_PASSWORD = 'x7V4VKpEbLJZDW3reb5J'
+
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 

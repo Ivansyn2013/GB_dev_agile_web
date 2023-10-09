@@ -32,7 +32,6 @@ from django.core.signing import BadSignature
 from .utilites import signer
 
 
-
 # Функция проверки отношений между пользователями.
 def get_relationship_status(user1, user2):
     # Проверяем, есть ли запрос в друзья от пользователя user1 к пользователю user2
@@ -229,6 +228,7 @@ def user_activate(request, sign):
         user.save()
     return render(request, template)
 
+
 class LoginUser(DataMixin, LoginView):
     form_class = AuthenticationForm
     template_name = 'login.html'
@@ -423,6 +423,7 @@ def delete_comment(request, comment_id):
 def top_players(request):
     top = ProfileUser.objects.annotate(post_count=Count('user_name__user_post')).order_by('-top_result')[:10]
     return render(request, 'top.html', {'top': top})
+
 
 class GameResultDetail(DetailView):
     model = ProfileUser

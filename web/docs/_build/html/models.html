@@ -132,7 +132,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="authapp.models.CustomUser">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">CustomUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_login</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_superuser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_staff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_active</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_joined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">about_me</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instagram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">github</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avatar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.CustomUser" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">CustomUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_login</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_superuser</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_staff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_active</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_joined</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">about_me</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instagram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">github</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_activated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.CustomUser" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -153,6 +153,7 @@
 <li><p><strong>instagram</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v4.2)"><em>CharField</em></a>) – Instagram</p></li>
 <li><p><strong>github</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v4.2)"><em>CharField</em></a>) – Github</p></li>
 <li><p><strong>avatar</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ImageField" title="(in Django v4.2)"><em>ImageField</em></a>) – Avatar</p></li>
+<li><p><strong>is_activated</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BooleanField" title="(in Django v4.2)"><em>BooleanField</em></a>) – Прошел активацию</p></li>
 </ul>
 </dd>
 </dl>
@@ -170,7 +171,6 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>logentry</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.models.LogEntry" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogEntry</span></code></a>) – All записи в журнале of this пользователь (related name of <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/contrib/admin/#django.contrib.admin.models.LogEntry.user" title="(in Django v4.2)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">user</span></code></a>)</p></li>
-<li><p><strong>social_auth</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">UserSocialAuth</span></code>) – All social auth of this пользователь (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">user</span></code>)</p></li>
 <li><p><strong>profile_user</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <a class="reference internal" href="#authapp.models.ProfileUser" title="authapp.models.ProfileUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileUser</span></code></a>) – The profile user of this пользователь (related name of <a class="reference internal" href="#authapp.models.ProfileUser.user_name" title="authapp.models.ProfileUser.user_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">user_name</span></code></a>)</p></li>
 <li><p><strong>sent_messages</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#authapp.models.MessagesModel" title="authapp.models.MessagesModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessagesModel</span></code></a>) – All sent messages of this пользователь (related name of <a class="reference internal" href="#authapp.models.MessagesModel.sender" title="authapp.models.MessagesModel.sender"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sender</span></code></a>)</p></li>
 <li><p><strong>user_post</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#authapp.models.PostUser" title="authapp.models.PostUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostUser</span></code></a>) – All user post of this пользователь (related name of <a class="reference internal" href="#authapp.models.PostUser.author" title="authapp.models.PostUser.author"><code class="xref py py-attr docutils literal notranslate"><span class="pre">author</span></code></a>)</p></li>
@@ -179,8 +179,6 @@
 <li><p><strong>dislikemodel</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#authapp.models.DisLikeModel" title="authapp.models.DisLikeModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisLikeModel</span></code></a>) – All Дизлайки of this пользователь (related name of <a class="reference internal" href="#authapp.models.DisLikeModel.user" title="authapp.models.DisLikeModel.user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">user</span></code></a>)</p></li>
 <li><p><strong>request_sent</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#authapp.models.FriendsRequest" title="authapp.models.FriendsRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">FriendsRequest</span></code></a>) – All request sent of this пользователь (related name of <a class="reference internal" href="#authapp.models.FriendsRequest.sent_from" title="authapp.models.FriendsRequest.sent_from"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sent_from</span></code></a>)</p></li>
 <li><p><strong>request_received</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#authapp.models.FriendsRequest" title="authapp.models.FriendsRequest"><code class="xref py py-class docutils literal notranslate"><span class="pre">FriendsRequest</span></code></a>) – All request received of this пользователь (related name of <a class="reference internal" href="#authapp.models.FriendsRequest.sent_to" title="authapp.models.FriendsRequest.sent_to"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sent_to</span></code></a>)</p></li>
-<li><p><strong>chats</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ManyToManyField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManyToManyField</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">Chat</span></code>) – All chats of this пользователь (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">users</span></code>)</p></li>
-<li><p><strong>chatmessage</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">ChatMessage</span></code>) – All chat messages of this пользователь (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">author</span></code>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -223,20 +221,6 @@
 <span class="sig-name descname"><span class="pre">avatar</span></span><a class="headerlink" href="#authapp.models.CustomUser.avatar" title="Link to this definition">¶</a></dt>
 <dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ImageField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageField</span></code></a></p>
 <p>Avatar</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="authapp.models.CustomUser.chatmessage_set">
-<span class="sig-name descname"><span class="pre">chatmessage_set</span></span><a class="headerlink" href="#authapp.models.CustomUser.chatmessage_set" title="Link to this definition">¶</a></dt>
-<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">ChatMessage</span></code></p>
-<p>All chat messages of this пользователь (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">author</span></code>)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="authapp.models.CustomUser.chats">
-<span class="sig-name descname"><span class="pre">chats</span></span><a class="headerlink" href="#authapp.models.CustomUser.chats" title="Link to this definition">¶</a></dt>
-<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ManyToManyField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ManyToManyField</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">Chat</span></code></p>
-<p>All chats of this пользователь (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">users</span></code>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -305,6 +289,13 @@
 <span class="sig-name descname"><span class="pre">instagram</span></span><a class="headerlink" href="#authapp.models.CustomUser.instagram" title="Link to this definition">¶</a></dt>
 <dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.CharField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">CharField</span></code></a></p>
 <p>Instagram</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.CustomUser.is_activated">
+<span class="sig-name descname"><span class="pre">is_activated</span></span><a class="headerlink" href="#authapp.models.CustomUser.is_activated" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BooleanField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BooleanField</span></code></a></p>
+<p>Прошел активацию</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -394,13 +385,6 @@
 <span class="sig-name descname"><span class="pre">sent_messages</span></span><a class="headerlink" href="#authapp.models.CustomUser.sent_messages" title="Link to this definition">¶</a></dt>
 <dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <a class="reference internal" href="#authapp.models.MessagesModel" title="authapp.models.MessagesModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MessagesModel</span></code></a></p>
 <p>All sent messages of this пользователь (related name of <a class="reference internal" href="#authapp.models.MessagesModel.sender" title="authapp.models.MessagesModel.sender"><code class="xref py py-attr docutils literal notranslate"><span class="pre">sender</span></code></a>)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="authapp.models.CustomUser.social_auth">
-<span class="sig-name descname"><span class="pre">social_auth</span></span><a class="headerlink" href="#authapp.models.CustomUser.social_auth" title="Link to this definition">¶</a></dt>
-<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.ForeignKey" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ForeignKey</span></code></a> from <code class="xref py py-class docutils literal notranslate"><span class="pre">UserSocialAuth</span></code></p>
-<p>All social auth of this пользователь (related name of <code class="xref py py-attr docutils literal notranslate"><span class="pre">user</span></code>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -509,9 +493,8 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="authapp.models.DuckHuntModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">DuckHuntModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.DuckHuntModel" title="Link to this definition">¶</a></dt>
-<dd><p>Модель хранения данных игры</p>
-<dl class="field-list simple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">DuckHuntModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.DuckHuntModel" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v4.2)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
@@ -692,6 +675,91 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">KerbyModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allies_saved</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allies_lost</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">profile_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.KerbyModel" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v4.2)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
+<li><p><strong>best_result</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><em>IntegerField</em></a>) – Best result</p></li>
+<li><p><strong>total_points</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><em>IntegerField</em></a>) – Total points</p></li>
+<li><p><strong>allies_saved</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><em>IntegerField</em></a>) – Allies saved</p></li>
+<li><p><strong>allies_lost</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><em>IntegerField</em></a>) – Allies lost</p></li>
+</ul>
+</dd>
+</dl>
+<p>Relationship fields:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>profile_user</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> to <a class="reference internal" href="#authapp.models.ProfileUser" title="authapp.models.ProfileUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileUser</span></code></a>) – Profile user (related name: <a class="reference internal" href="#authapp.models.ProfileUser.kerby" title="authapp.models.ProfileUser.kerby"><code class="xref py py-attr docutils literal notranslate"><span class="pre">kerby</span></code></a>)</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#authapp.models.KerbyModel.DoesNotExist" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#authapp.models.KerbyModel.MultipleObjectsReturned" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.allies_lost">
+<span class="sig-name descname"><span class="pre">allies_lost</span></span><a class="headerlink" href="#authapp.models.KerbyModel.allies_lost" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a></p>
+<p>Allies lost</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.allies_saved">
+<span class="sig-name descname"><span class="pre">allies_saved</span></span><a class="headerlink" href="#authapp.models.KerbyModel.allies_saved" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a></p>
+<p>Allies saved</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.best_result">
+<span class="sig-name descname"><span class="pre">best_result</span></span><a class="headerlink" href="#authapp.models.KerbyModel.best_result" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a></p>
+<p>Best result</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#authapp.models.KerbyModel.id" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
+<p>Primary key: ID</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#authapp.models.KerbyModel.objects" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.profile_user">
+<span class="sig-name descname"><span class="pre">profile_user</span></span><a class="headerlink" href="#authapp.models.KerbyModel.profile_user" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> to <a class="reference internal" href="#authapp.models.ProfileUser" title="authapp.models.ProfileUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileUser</span></code></a></p>
+<p>Profile user (related name: <a class="reference internal" href="#authapp.models.ProfileUser.kerby" title="authapp.models.ProfileUser.kerby"><code class="xref py py-attr docutils literal notranslate"><span class="pre">kerby</span></code></a>)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.profile_user_id">
+<span class="sig-name descname"><span class="pre">profile_user_id</span></span><a class="headerlink" href="#authapp.models.KerbyModel.profile_user_id" title="Link to this definition">¶</a></dt>
+<dd><p>Internal field, use <a class="reference internal" href="#authapp.models.KerbyModel.profile_user" title="authapp.models.KerbyModel.profile_user"><code class="xref py py-class docutils literal notranslate"><span class="pre">profile_user</span></code></a> instead.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.KerbyModel.total_points">
+<span class="sig-name descname"><span class="pre">total_points</span></span><a class="headerlink" href="#authapp.models.KerbyModel.total_points" title="Link to this definition">¶</a></dt>
+<dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.IntegerField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntegerField</span></code></a></p>
+<p>Total points</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="authapp.models.LikeModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">LikeModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.LikeModel" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -760,9 +828,8 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="authapp.models.MessagesModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">MessagesModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.MessagesModel" title="Link to this definition">¶</a></dt>
-<dd><p>Модель хранения данных игры</p>
-<dl class="field-list simple">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.models.</span></span><span class="sig-name descname"><span class="pre">MessagesModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created_at</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.models.MessagesModel" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>id</strong> (<a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v4.2)"><em>BigAutoField</em></a>) – Primary key: ID</p></li>
@@ -1023,6 +1090,7 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>duck_hunt</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <a class="reference internal" href="#authapp.models.DuckHuntModel" title="authapp.models.DuckHuntModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DuckHuntModel</span></code></a>) – The duck hunt of this Профиль (related name of <a class="reference internal" href="#authapp.models.DuckHuntModel.profile_user" title="authapp.models.DuckHuntModel.profile_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">profile_user</span></code></a>)</p></li>
 <li><p><strong>super_mario</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <a class="reference internal" href="#authapp.models.SuperMarioModel" title="authapp.models.SuperMarioModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">SuperMarioModel</span></code></a>) – The super mario of this Профиль (related name of <a class="reference internal" href="#authapp.models.SuperMarioModel.profile_user" title="authapp.models.SuperMarioModel.profile_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">profile_user</span></code></a>)</p></li>
+<li><p><strong>kerby</strong> (Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <a class="reference internal" href="#authapp.models.KerbyModel" title="authapp.models.KerbyModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">KerbyModel</span></code></a>) – The kerby of this Профиль (related name of <a class="reference internal" href="#authapp.models.KerbyModel.profile_user" title="authapp.models.KerbyModel.profile_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">profile_user</span></code></a>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1055,6 +1123,13 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#authapp.models.ProfileUser.id" title="Link to this definition">¶</a></dt>
 <dd><p>Type: <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.BigAutoField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BigAutoField</span></code></a></p>
 <p>Primary key: ID</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.models.ProfileUser.kerby">
+<span class="sig-name descname"><span class="pre">kerby</span></span><a class="headerlink" href="#authapp.models.ProfileUser.kerby" title="Link to this definition">¶</a></dt>
+<dd><p>Type: Reverse <a class="reference external" href="https://docs.djangoproject.com/en/stable/ref/models/fields/#django.db.models.OneToOneField" title="(in Django v4.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">OneToOneField</span></code></a> from <a class="reference internal" href="#authapp.models.KerbyModel" title="authapp.models.KerbyModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">KerbyModel</span></code></a></p>
+<p>The kerby of this Профиль (related name of <a class="reference internal" href="#authapp.models.KerbyModel.profile_user" title="authapp.models.KerbyModel.profile_user"><code class="xref py py-attr docutils literal notranslate"><span class="pre">profile_user</span></code></a>)</p>
 </dd></dl>
 
 <dl class="py attribute">
@@ -1189,6 +1264,7 @@ non-SQL backends), respectively. Normally, they should not be set.</p>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.models.DisLikeModel"><code class="docutils literal notranslate"><span class="pre">DisLikeModel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.models.DuckHuntModel"><code class="docutils literal notranslate"><span class="pre">DuckHuntModel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.models.FriendsRequest"><code class="docutils literal notranslate"><span class="pre">FriendsRequest</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.models.KerbyModel"><code class="docutils literal notranslate"><span class="pre">KerbyModel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.models.LikeModel"><code class="docutils literal notranslate"><span class="pre">LikeModel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.models.MessagesModel"><code class="docutils literal notranslate"><span class="pre">MessagesModel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.models.PostUser"><code class="docutils literal notranslate"><span class="pre">PostUser</span></code></a></li>

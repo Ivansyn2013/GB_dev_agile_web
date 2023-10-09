@@ -44,6 +44,37 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="authapp.views.GameResultDetail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">GameResultDetail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.GameResultDetail" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.views.GameResultDetail.context_object_name">
+<span class="sig-name descname"><span class="pre">context_object_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'game_progress'</span></em><a class="headerlink" href="#authapp.views.GameResultDetail.context_object_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.views.GameResultDetail.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#authapp.views.GameResultDetail.model" title="Link to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="models.html#authapp.models.ProfileUser" title="authapp.models.ProfileUser"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileUser</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.views.GameResultDetail.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'game_progress_detail.html'</span></em><a class="headerlink" href="#authapp.views.GameResultDetail.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="authapp.views.KerbyView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">KerbyView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.KerbyView" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="authapp.views.KerbyView.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.KerbyView.get" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="authapp.views.LoginUser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">LoginUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.LoginUser" title="Link to this definition">¶</a></dt>
 <dd><dl class="py attribute">
@@ -244,6 +275,16 @@ Subclasses can override this to return any object.</p>
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="authapp.views.RegisterDoneView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">RegisterDoneView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.RegisterDoneView" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.views.RegisterDoneView.template_name">
+<span class="sig-name descname"><span class="pre">template_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'main/register_done.html'</span></em><a class="headerlink" href="#authapp.views.RegisterDoneView.template_name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="authapp.views.RegisterUser">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">RegisterUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.RegisterUser" title="Link to this definition">¶</a></dt>
 <dd><dl class="py attribute">
@@ -336,8 +377,8 @@ Subclasses can override this to return any object.</p>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="authapp.views.kerby">
-<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">kerby</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.kerby" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="authapp.views.kerby_points_save">
+<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">kerby_points_save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.kerby_points_save" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -352,7 +393,12 @@ Subclasses can override this to return any object.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="authapp.views.login_vk">
-<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">login_vk</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.login_vk" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">login_vk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.login_vk" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="authapp.views.login_vk_callback">
+<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">login_vk_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.login_vk_callback" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -381,6 +427,11 @@ Subclasses can override this to return any object.</p>
 <dd></dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="authapp.views.tank">
+<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">tank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.tank" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="authapp.views.toggle_dis_like">
 <span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">toggle_dis_like</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.toggle_dis_like" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -393,6 +444,11 @@ Subclasses can override this to return any object.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="authapp.views.top_players">
 <span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">top_players</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.top_players" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="authapp.views.user_activate">
+<span class="sig-prename descclassname"><span class="pre">authapp.views.</span></span><span class="sig-name descname"><span class="pre">user_activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sign</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.views.user_activate" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -424,6 +480,8 @@ Subclasses can override this to return any object.</p>
 <li class="toctree-l1"><a class="reference internal" href="admin.html">Admin</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Views</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.DuckHuntViews"><code class="docutils literal notranslate"><span class="pre">DuckHuntViews</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.GameResultDetail"><code class="docutils literal notranslate"><span class="pre">GameResultDetail</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.KerbyView"><code class="docutils literal notranslate"><span class="pre">KerbyView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.LoginUser"><code class="docutils literal notranslate"><span class="pre">LoginUser</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.MessageView"><code class="docutils literal notranslate"><span class="pre">MessageView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.PostCreated"><code class="docutils literal notranslate"><span class="pre">PostCreated</span></code></a></li>
@@ -431,6 +489,7 @@ Subclasses can override this to return any object.</p>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.PostUpdateView"><code class="docutils literal notranslate"><span class="pre">PostUpdateView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.ProfileDetailUserView"><code class="docutils literal notranslate"><span class="pre">ProfileDetailUserView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.ProfileUpdateView"><code class="docutils literal notranslate"><span class="pre">ProfileUpdateView</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.RegisterDoneView"><code class="docutils literal notranslate"><span class="pre">RegisterDoneView</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.RegisterUser"><code class="docutils literal notranslate"><span class="pre">RegisterUser</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.SuperMarioViews"><code class="docutils literal notranslate"><span class="pre">SuperMarioViews</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.add_comment"><code class="docutils literal notranslate"><span class="pre">add_comment()</span></code></a></li>
@@ -444,18 +503,21 @@ Subclasses can override this to return any object.</p>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.game_js"><code class="docutils literal notranslate"><span class="pre">game_js()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.get_relationship_status"><code class="docutils literal notranslate"><span class="pre">get_relationship_status()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.home"><code class="docutils literal notranslate"><span class="pre">home()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#authapp.views.kerby"><code class="docutils literal notranslate"><span class="pre">kerby()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.kerby_points_save"><code class="docutils literal notranslate"><span class="pre">kerby_points_save()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.login_github"><code class="docutils literal notranslate"><span class="pre">login_github()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.login_github_callback"><code class="docutils literal notranslate"><span class="pre">login_github_callback()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.login_vk"><code class="docutils literal notranslate"><span class="pre">login_vk()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.login_vk_callback"><code class="docutils literal notranslate"><span class="pre">login_vk_callback()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.logout_user"><code class="docutils literal notranslate"><span class="pre">logout_user()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.profile_user_view"><code class="docutils literal notranslate"><span class="pre">profile_user_view()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.request_friends"><code class="docutils literal notranslate"><span class="pre">request_friends()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.start_game"><code class="docutils literal notranslate"><span class="pre">start_game()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.super_mario_points_save"><code class="docutils literal notranslate"><span class="pre">super_mario_points_save()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.tank"><code class="docutils literal notranslate"><span class="pre">tank()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.toggle_dis_like"><code class="docutils literal notranslate"><span class="pre">toggle_dis_like()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.toggle_like"><code class="docutils literal notranslate"><span class="pre">toggle_like()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.top_players"><code class="docutils literal notranslate"><span class="pre">top_players()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.views.user_activate"><code class="docutils literal notranslate"><span class="pre">user_activate()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.views.users_all_view"><code class="docutils literal notranslate"><span class="pre">users_all_view()</span></code></a></li>
 </ul>
 </li>

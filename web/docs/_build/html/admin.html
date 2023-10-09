@@ -61,8 +61,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="authapp.admin.CustomUserAdmin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.admin.</span></span><span class="sig-name descname"><span class="pre">CustomUserAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.admin.CustomUserAdmin" title="Link to this definition">¶</a></dt>
-<dd><p>Custom user admin manager where by UserAdmin model.</p>
-<dl class="py attribute">
+<dd><dl class="py attribute">
 <dt class="sig sig-object py" id="authapp.admin.CustomUserAdmin.add_fieldsets">
 <span class="sig-name descname"><span class="pre">add_fieldsets</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">((None,</span> <span class="pre">{'classes':</span> <span class="pre">('wide',),</span> <span class="pre">'fields':</span> <span class="pre">('username',</span> <span class="pre">'status',</span> <span class="pre">'about_me',</span> <span class="pre">'email',</span> <span class="pre">'vk',</span> <span class="pre">'instagram',</span> <span class="pre">'github',</span> <span class="pre">'avatar',</span> <span class="pre">'password1',</span> <span class="pre">'password2',</span> <span class="pre">'is_staff',</span> <span class="pre">'is_active')}),)</span></em><a class="headerlink" href="#authapp.admin.CustomUserAdmin.add_fieldsets" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -86,7 +85,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="authapp.admin.CustomUserAdmin.list_display">
-<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'email',</span> <span class="pre">'get_avatar',</span> <span class="pre">'is_staff',</span> <span class="pre">'is_active')</span></em><a class="headerlink" href="#authapp.admin.CustomUserAdmin.list_display" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('username',</span> <span class="pre">'email',</span> <span class="pre">'get_avatar',</span> <span class="pre">'is_staff',</span> <span class="pre">'is_active',</span> <span class="pre">'is_activated')</span></em><a class="headerlink" href="#authapp.admin.CustomUserAdmin.list_display" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -173,6 +172,26 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="authapp.admin.FriendsRequestAdmin.media">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#authapp.admin.FriendsRequestAdmin.media" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="authapp.admin.KerbyAdmin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">authapp.admin.</span></span><span class="sig-name descname"><span class="pre">KerbyAdmin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">admin_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#authapp.admin.KerbyAdmin" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.admin.KerbyAdmin.list_display">
+<span class="sig-name descname"><span class="pre">list_display</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'profile_user',</span> <span class="pre">'best_result',</span> <span class="pre">'total_points',</span> <span class="pre">'allies_saved',</span> <span class="pre">'allies_lost']</span></em><a class="headerlink" href="#authapp.admin.KerbyAdmin.list_display" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="authapp.admin.KerbyAdmin.list_display_links">
+<span class="sig-name descname"><span class="pre">list_display_links</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id']</span></em><a class="headerlink" href="#authapp.admin.KerbyAdmin.list_display_links" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="authapp.admin.KerbyAdmin.media">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#authapp.admin.KerbyAdmin.media" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -334,6 +353,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#authapp.admin.DisLikeAdmin"><code class="docutils literal notranslate"><span class="pre">DisLikeAdmin</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.admin.DuckHuntAdmin"><code class="docutils literal notranslate"><span class="pre">DuckHuntAdmin</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.admin.FriendsRequestAdmin"><code class="docutils literal notranslate"><span class="pre">FriendsRequestAdmin</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authapp.admin.KerbyAdmin"><code class="docutils literal notranslate"><span class="pre">KerbyAdmin</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.admin.LikeAdmin"><code class="docutils literal notranslate"><span class="pre">LikeAdmin</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.admin.MessagesAdmin"><code class="docutils literal notranslate"><span class="pre">MessagesAdmin</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#authapp.admin.PostUserAdmin"><code class="docutils literal notranslate"><span class="pre">PostUserAdmin</span></code></a></li>

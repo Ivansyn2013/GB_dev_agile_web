@@ -20,7 +20,7 @@ class CustomUser(AbstractUser):
     instagram = models.CharField(max_length=100, blank=True, null=True)
     github = models.CharField(max_length=100, blank=True, null=True)
     avatar = models.ImageField(upload_to='avatar/%Y/%m/%d/', blank=True, verbose_name='avatar')
-    is_activated = models.BooleanField(default=True, db_index=True, verbose_name='Прошел активацтю')
+    is_activated = models.BooleanField(default=True, db_index=True, verbose_name='Прошел активацию')
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
