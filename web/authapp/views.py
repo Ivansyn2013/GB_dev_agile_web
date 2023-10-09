@@ -125,7 +125,7 @@ def home(request):
     from django.middleware.csrf import get_token
 
     csrf_token = get_token(request)
-    print(csrf_token)
+    #print(csrf_token)
 
     # distinct=True - позволяет подсчитывать только уникальные элементы
     post = PostUser.objects.annotate(comment_count=Count('comments')).annotate(

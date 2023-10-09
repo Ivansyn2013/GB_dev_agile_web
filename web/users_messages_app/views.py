@@ -45,7 +45,7 @@ class CreateChatView(LoginRequiredMixin, View):
 
             chat_inst = Chat.objects.create()
             chat_inst.users.add(initiator, companion)
-
+            operation_result = 'ok'
 
 
         except (CustomUser.DoesNotExist, ValueError) as error:
@@ -54,6 +54,16 @@ class CreateChatView(LoginRequiredMixin, View):
 
         return JsonResponse({'chat_status': operation_result})
 
+@login_required
+def send_message(request, *args, **kwargs):
+    '''
+    Функция получения сообщения с фронта
+    :param request:
+    :param args:
+    :param kwargs:
+    :return:
+    '''
+    return JsonResponse({'mess_status': 'ok'})
 
 # class CreateChatView(LoginRequiredMixin, CreateView):
 #     model = Chat
