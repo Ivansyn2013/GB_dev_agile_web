@@ -16,7 +16,7 @@ from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
 #путь к своему окружению писать здесь
-load_dotenv(dotenv_path='../.env')
+# load_dotenv(dotenv_path='../.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,7 +67,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
