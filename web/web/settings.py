@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     # 'channels',
     'authapp',
     'bootstrap4',
-    'web.web',
+    'web',
 
 ]
 
