@@ -40,6 +40,8 @@ urlpatterns = [
     path('login/github/callback/', login_github_callback, name='login_github_callback'),
     path('login/vk/', login_vk, name='login_vk'),
     path('login/vk/callback/', login_vk_callback, name='login_vk_callback'),
-]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
