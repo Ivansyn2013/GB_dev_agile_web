@@ -302,7 +302,7 @@ def login_github_callback(request):
 def login_vk(request):
     print('start -> login_vk')
     client_id = settings.VK_APP_ID
-    redirect_uri = 'http://127.0.0.1:8888/login/vk/callback/'
+    redirect_uri = 'https://bro-pro-game-dev.onrender.com/login/vk/callback/'
     return redirect(
         f'https://oauth.vk.com/authorize?client_id={client_id}&display=page&redirect_uri={redirect_uri}&scope=email&response_type=code&v=5.131&state=123456')
 
@@ -314,7 +314,7 @@ def login_vk_callback(request):
         'client_id': settings.VK_APP_ID,
         'client_secret': settings.VK_API_SECRET,
         'code': code,
-        'redirect_uri': 'http://127.0.0.1:8888/login/vk/callback/',
+        'redirect_uri': 'https://bro-pro-game-dev.onrender.com/login/vk/callback/',
         'Content-Type': 'application/json'
     }
     headers = {
