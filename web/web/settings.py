@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'authapp',
     'bootstrap4',
     'web',
+    'users_messages_app',
 
 ]
 
