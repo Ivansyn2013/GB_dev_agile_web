@@ -14,9 +14,10 @@ from pathlib import Path
 
 from django.urls import reverse_lazy
 from dotenv import load_dotenv
+import logging
 
 #путь к своему окружению писать здесь
-# load_dotenv(dotenv_path='../.env')
+load_dotenv(dotenv_path='../.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,20 +88,23 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': os.environ.get('MYSQL_DATABASE'),
-#         'USER': os.environ.get('MYSQL_USER'),
-#         'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('POSTGRES_DB'),
+#         'USER': os.environ.get('POSTGRES_USER'),
+#         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
 #         'HOST': os.environ.get('DBHOST'),
-#         'PORT': '3306',  # Порт MySQL по умолчанию
+#         'PORT': os.environ.get('PGPORT'),
 #     }
 # }
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('MYSQL_DATABASE'),
+        'USER': os.environ.get('MYSQL_USER'),
+        'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+        'HOST': os.environ.get('DBHOST'),
+        'PORT': os.environ.get('PGPORT'),
     }
 }
 
@@ -125,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -136,7 +140,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -145,10 +149,10 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# STATICFILES_FINDERS = [
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-# ]
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 
 # Default primary key field type
@@ -157,6 +161,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authapp.CustomUser'
+
+# CORS_ALLOW_ALL_ORIGINS = True
+#
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8888",
+# ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
@@ -170,22 +180,6 @@ DEFAULT_FROM_EMAIL = 'dima_protasevich92@mail.ru'
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
-    },
-}
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("192.168.99.104", 6379)],
-#         },
-#     },
-# }
-
-ASGI_APPLICATION = "web.asgi.application"
-
 # LOGIN_URL  is used by login_required decorator
 LOGIN_URL = reverse_lazy('home')
 
@@ -197,3 +191,49 @@ GITHUB_CLIENT_ID = os.environ.get('GITHUB_APP_ID')
 GITHUB_SECRET = os.environ.get('GITHUB_API_SECRET')
 VK_APP_ID = os.environ.get('VK_APP_ID')
 VK_API_SECRET = os.environ.get('VK_API_SECRET')
+
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels.layers.InMemoryChannelLayer",
+#     },
+# }
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("web_redis_1", 6379)],
+        },
+    },
+}
+
+
+ASGI_APPLICATION = "web.asgi.application"
+
+# Настройки для логирования
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'ERROR',  # Уровень логирования (может быть 'DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
+            'class': 'logging.FileHandler',
+            'filename': 'django_error.log',  # Имя файла для записи логов
+            'formatter': 'verbose',  # Используем форматер 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],  # Используем обработчик 'file'
+            'level': 'ERROR',  # Уровень логирования для логгера Django
+            'propagate': True,
+        },
+    },
+}
+
