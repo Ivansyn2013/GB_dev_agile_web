@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+
+from django.urls import reverse_lazy
 from dotenv import load_dotenv
 
 #путь к своему окружению писать здесь
-load_dotenv(dotenv_path='../.env')
+# load_dotenv(dotenv_path='../.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&seqbegnc0z*$ror2r6qod$@j7r@*v_!r&@vfv29dh17m0$lx%'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,10 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # созданные приложения
-    # 'daphne',
-    'channels',
+    # 'channels',
     'authapp',
     'bootstrap4',
+    'web',
 
 ]
 
@@ -64,7 +67,7 @@ ROOT_URLCONF = 'web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'web.wsgi.application'
-ASGI_APPLICATION = "web.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -101,8 +103,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -136,15 +136,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, '../static'),)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+# ]
 
 
 # Default primary key field type
@@ -154,20 +158,42 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authapp.CustomUser'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 465 # 2525
+EMAIL_HOST_USER = os.getenv("EMAIL")
+EMAIL_HOST_PASSWORD = os.getenv("PASSWORD")
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+DEFAULT_FROM_EMAIL = 'dima_protasevich92@mail.ru'
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
     },
 }
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("192.168.99.104", 6379)],
+#         },
+#     },
+# }
 
+ASGI_APPLICATION = "web.asgi.application"
 
-# CORS_REPLACE_HTTPS_REFERER = False
-# HOST_SCHEME = "http://"
-# SECURE_PROXY_SSL_HEADER = None
-# SECURE_SSL_REDIRECT = False
-# SESSION_COOKIE_SECURE = False
-# CSRF_COOKIE_SECURE = False
-# SECURE_HSTS_SECONDS = None
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = False
-# SECURE_FRAME_DENY = False
+# LOGIN_URL  is used by login_required decorator
+LOGIN_URL = reverse_lazy('home')
+
+# logout the user - invalidate the session - when browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# secrets
+GITHUB_CLIENT_ID = os.environ.get('GITHUB_APP_ID')
+GITHUB_SECRET = os.environ.get('GITHUB_API_SECRET')
+VK_APP_ID = os.environ.get('VK_APP_ID')
+VK_API_SECRET = os.environ.get('VK_API_SECRET')
