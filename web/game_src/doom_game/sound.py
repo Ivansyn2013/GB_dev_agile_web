@@ -15,5 +15,5 @@ class Sound:
         self.npc_shot = pg.mixer.Sound(os.path.join(self.path, 'npc_attack.wav'))  # Обновите путь
         self.npc_shot.set_volume(0.2)
         self.player_pain = pg.mixer.Sound(os.path.join(self.path, 'player_pain.wav'))  # Обновите путь
-        self.theme = pg.mixer.music.load(os.path.join(self.path, 'theme.mp3'))  # Обновите путь
+        self.theme = pg.mixer.music.load(os.path.join(self.path, 'theme.ogg'))  # Обновите путь
         pg.mixer.music.set_volume(0.3)
