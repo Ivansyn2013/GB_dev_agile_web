@@ -3,5 +3,5 @@
 set -o errexit
 
 pip install -r requirements.txt
-pygbag game/main.py
+docker-compose up build
 python web/manage.py collectstatic --no-input
