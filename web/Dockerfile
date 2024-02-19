@@ -18,6 +18,8 @@ COPY . /web
 # Устанавливаем зависимости из requirements.txt
 RUN pip install -r requirements.txt
 
+RUN python manage.py collectstatic --no-input
+
 # Установка сервера Daphne
 # CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
 
