@@ -217,7 +217,7 @@ button {
 }
 
 .animationAmigo {
-	background-image:url(../imgs/amigo.png);
+	background-image:url(../image/amigo.png);
 	animation:play2 .4s steps(12) infinite;
 	-webkit-animation: play2 .9s steps(2) infinite;
        -moz-animation: play2 .9s steps(2) infinite;
