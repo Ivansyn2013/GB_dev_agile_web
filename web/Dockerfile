@@ -19,7 +19,9 @@ COPY . /web
 RUN pip install -r requirements.txt
 
 # Собираем статичные файлы
-RUN ./manage.py collectstatic --noinput
+RUN ./manage.py collectstatic --no-input
+
+RUN ./manage.py migrate
 
 # Установка сервера Daphne
 # CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
