@@ -22,6 +22,7 @@ RUN pip install -r requirements.txt
 RUN ./manage.py collectstatic --no-input
 
 # Установка сервера Daphne
-CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
+# CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
+RUN daphne -b 0.0.0.0 web.asgi:application --port 8001
 
 # CMD ["gunicorn", "web.wsgi:application"]
