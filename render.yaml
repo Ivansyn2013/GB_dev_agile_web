@@ -5,9 +5,6 @@ services:
     runtime: docker
     rootDir: web
     dockerCommand: ./Dockerfile.daphne # optional (defaults to Dockerfile command)
-    healthCheckPath: /
-      fromRegistryCreds:
-        name: my-credentials
     envVars:
       - key: REDIS_HOST
         fromService:
