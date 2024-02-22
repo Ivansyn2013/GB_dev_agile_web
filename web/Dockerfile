@@ -21,8 +21,6 @@ RUN pip install -r requirements.txt
 # Собираем статичные файлы
 RUN ./manage.py collectstatic --no-input
 
-RUN gunicorn web.asgi:application -k uvicorn.workers.UvicornWorker
-
 # Установка сервера Daphne
 CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
 
