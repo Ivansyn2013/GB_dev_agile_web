@@ -3,6 +3,7 @@ services:
   - type: web
     name: daphne
     runtime: docker
+    plan: free
     rootDir: web
     dockerCommand: ./Dockerfile.daphne # optional (defaults to Dockerfile command)
     envVars:
