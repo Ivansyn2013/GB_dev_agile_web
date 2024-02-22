@@ -18,7 +18,7 @@ COPY . /web
 # Устанавливаем зависимости из requirements.txt
 RUN pip install -r requirements.txt
 
-# Установка сервера Daphne
-# CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
+# Установка сервера Daphne trymore
+CMD ["daphne", "-b", "0.0.0.0", "web.asgi:application", "--port", "8001"]
 
-ENTRYPOINT ["gunicorn", "web.wsgi:application"]
+# ENTRYPOINT ["gunicorn", "web.wsgi:application"]
