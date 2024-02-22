@@ -1,4 +1,25 @@
 services:
+  # A Docker web service
+  - type: web
+    name: daphne
+    runtime: docker
+    rootDir: web
+    dockerCommand: ./Dockerfile.daphne # optional (defaults to Dockerfile command)
+    healthCheckPath: /
+      fromRegistryCreds:
+        name: my-credentials
+    envVars:
+      - key: REDIS_HOST
+        fromService:
+          type: redis
+          name: lightning
+          property: host # available properties are listed below
+      - key: REDIS_PORT
+        fromService:
+          type: redis
+          name: lightning
+          property: port
+      - fromGroup: conc-settings
   # A Redis instance
   - type: redis
     name: lightning
